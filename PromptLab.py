@@ -44,7 +44,7 @@ upload_option = st.sidebar.selectbox('Select an upload option:',
  )
 
 if upload_option == 'Upload a CSV file':
-    uploaded_file = st.file_uploader("Choose a file")
+    uploaded_file = st.sidebar.file_uploader("Choose a file")
     if 'uploaded_file' not in st.session_state:
         st.session_state['uploaded_file'] = None
     uploaded_file = st.session_state['uploaded_file'] 
