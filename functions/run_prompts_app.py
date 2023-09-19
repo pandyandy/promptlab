@@ -28,7 +28,8 @@ def run_prompts_app(df):
     st.markdown(f'<h3 style="border-bottom: 2px solid #288CFC; ">{"Test"}</h3>', 
                 unsafe_allow_html=True)
     st.text(" ")
-    
+    st.write("Important note: Prompts run horizontally, you get a result for each row of your table.")
+        
     num_prompts = st.number_input("Select number of prompts:", min_value=1, value=2, max_value=3)
     st.write('To use values from your table, put the column name in double square brackets, e.g. "[[column_name]]".')
     
