@@ -38,8 +38,8 @@ os.environ["OPENAI_API_KEY"] = openai_api_key
 openai.api_key = openai_api_key
 
 upload_option = st.sidebar.selectbox('Select an upload option:', 
-                                    ['Upload a CSV file'
-                                     # 'Use Demo Dataset'
+                                    ['Upload a CSV file',
+                                      'Use Demo Dataset'
                                      ]
  )
 
@@ -47,7 +47,13 @@ if upload_option == 'Upload a CSV file':
     uploaded_file = st.sidebar.file_uploader("Choose a file")
     if 'uploaded_file' not in st.session_state:
         st.session_state['uploaded_file'] = None
-    uploaded_file = st.session_state['uploaded_file'] 
+    st.session_state['uploaded_file'] = uploaded_file
+
+elif upload_option == 'Use Demo Dataset':
+    uploaded_file = image_path+"/data/data_test.csv"
+    if 'uploaded_file' not in st.session_state:
+        st.session_state['uploaded_file'] = None
+    st.session_state['uploaded_file'] = uploaded_file
 
 def main():
 
@@ -58,7 +64,7 @@ def main():
         
         show_data_info(df)
         if st.session_state['uploaded_file'] is not None:
-            interactive_table()
+            st.dataframe(df, use_container_width=True)
 
         if not openai_api_key:
             st.warning("To continue, please enter your OpenAI API Key.", icon="⚠️")
