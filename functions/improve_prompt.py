@@ -126,4 +126,4 @@ Prompting best practices:
                 st.session_state.last_user_input = user_input
             
         if "improved_content" in st.session_state:
-            st.code(st.session_state.improved_content, language="json")
+            st.code(st.session_state.improved_content, language="toml")
