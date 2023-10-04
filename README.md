@@ -1,8 +1,8 @@
-# PromptLab
+# PromptLab 👩🏻‍🔬
 
 https://promptlab.streamlit.app/
 
-Welcome to the PromptLab! 👩🏻‍🔬 Here's your quick step-by-step guide to help you get started with the app.
+Welcome to the PromptLab! Here's your quick step-by-step guide to help you get started with the app.
 
 ## Introduction
 PromptLab is a tool designed to assist you in generating prompts for natural language processing tasks using OpenAI's models. Load a dataset, preview the data, and create different prompts to find the one that fits your data best.
