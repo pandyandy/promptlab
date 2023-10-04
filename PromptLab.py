@@ -78,6 +78,7 @@ def display_main_content(uploaded_file, openai_api_key):
 
 def main():
     set_page_config()
+    display_logo()
     st.title("PromptLab 👩🏻‍🔬")
 
     openai_api_key = set_api_key()
