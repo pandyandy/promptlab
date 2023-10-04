@@ -72,7 +72,7 @@ def display_main_content(uploaded_file, openai_api_key):
         st.markdown("""
         __Welcome to the PromptLab!__ 
                     
-        🔄 Start by uploading your own csv table or a provided demo dataset. After uploading the selected table, you should see a preview of your data. Ensure that you are working with the correct table before proceeding. :)
+        🔄 Start by uploading your own CSV file or a provided demo dataset. After uploading the selected table, you should see a preview of your data.
                             """)
 
 def main():
