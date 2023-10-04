@@ -20,7 +20,7 @@ def get_parameters(prefix=""):
     ))
     
     temperature = float(col3.slider(
-        "Temperature", min_value=0.0, max_value=1.0, value=0.7, 
+        "Temperature", min_value=0.0, max_value=1.0, value=0.25, 
         help="Lower values for temperature result in more consistent outputs, while higher values generate more diverse and creative results. Select a temperature value based on the desired trade-off between coherence and creativity for your specific application.", 
         key=f"{prefix}set_temp"
     ))

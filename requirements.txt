@@ -5,3 +5,4 @@ langchain
 git+https://github.com/keboola/sapi-python-client.git
 streamlit-aggrid
 sentence_transformers
+backoff
