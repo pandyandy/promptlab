@@ -46,7 +46,7 @@ def get_uploaded_file(upload_option):
         st.session_state['uploaded_file'] = uploaded_file
 
     elif upload_option == 'Use Demo Dataset':
-        uploaded_file = image_path+"/data/data_test.csv"
+        uploaded_file = image_path+"/data/sample_data.csv"
         if 'uploaded_file' not in st.session_state:
             st.session_state['uploaded_file'] = None
         st.session_state['uploaded_file'] = uploaded_file
