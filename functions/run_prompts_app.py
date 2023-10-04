@@ -58,13 +58,8 @@ def run_prompts_app(df):
     st.markdown(f'<h3 style="border-bottom: 2px solid #288CFC; ">{"Test"}</h3>', 
                 unsafe_allow_html=True)
     st.text(" ")
-<<<<<<< Updated upstream
-    st.write("Important note: Prompts run horizontally, meaning you get response(s) for each row of the table.")
-        
-=======
-    st.markdown('🤹 This is your playground. You can fill in 1-3 prompts to run with your data. Each prompt comes with its own settings, allowing you to tweak parameters or compare results across different models. For example, you can test how a prompt performs with a higher temperature setting vs. a lower one.')
+    st.markdown('🤹 This is your playground. You can fill in 1-3 prompts to run with your data. Each prompt comes with its own settings, allowing you to tweak parameters or compare results across different models. For example, test how a prompt performs with a higher temperature setting vs. a lower one.')
     
->>>>>>> Stashed changes
     num_prompts = st.number_input("Select number of prompts:", min_value=1, value=2, max_value=3)
     st.markdown('Prompts run horizontally, you get a response(s) for each row of your table. To use values from your table, put the column name in double square brackets, e.g. "[[column_name]]".')
     
@@ -77,10 +72,10 @@ def run_prompts_app(df):
     st.markdown("Once you're happy with your prompts and settings, hit the button below. The app will then work its magic, running all the prompts and return the responses.")
 
     # Get responses
-    if st.button('OKaaaAAAaaAYYYy LETS GO 🎢', help="ok"):
+    if st.button('OKaaaAAAaaAYYYy LETS GO 🎢'):
         prompt_output = generate_prompts_output(df_subset, prompts_list)
         st.session_state["response_content"] = prompt_output
-   
+        
     # Show responses
     if st.session_state["response_content"] is not None:
 
@@ -88,7 +83,7 @@ def run_prompts_app(df):
         st.text(" ")
         st.markdown("🔍 Review the responses and see which prompt fits your data best. You can also check the responses similarity score to pinpoint areas where prompts might seem contradictory. This is a great way to refine your prompts and understand potential model challenges.")
         st.dataframe(st.session_state["response_content"], use_container_width=True)
-
+    
     # Rate, download, reset
         rate_button, get_button, reset_button = st.columns(3)
         with rate_button: 
@@ -98,7 +93,7 @@ def run_prompts_app(df):
             prompts_list = [{"name": key, "message": value} for key, value in prompts_list.items()]
             params_list = []
             for i in range(num_prompts):
-                param_key = f"response_params_{i + 1}"
+                param_key = f"response_params_{i+1}"
                 if param_key in st.session_state:
                     params_list.append(st.session_state[param_key])
             combined_strings = []
@@ -107,7 +102,7 @@ def run_prompts_app(df):
                 combined_strings.append(json.dumps(combined_data, indent=2))
             prompts_download = '\n\n'.join(combined_strings)
             st.download_button('Download prompts', prompts_download, use_container_width=True)
-        
+    
         with reset_button:
             reset_click = st.button('Reset app', use_container_width=True)
         
@@ -119,7 +114,7 @@ def run_prompts_app(df):
             cols = ['similarity_score'] + [col for col in rating_input if col != 'similarity_score']
             rating_input = rating_input[cols]
             st.session_state['rating_content'] = rating_input
-            
+
             st.markdown(f'<h3 style="border-bottom: 2px solid #288CFC; ">{"Rating"}</h3>', unsafe_allow_html=True)
             st.text(" ")
             st.write("🥇 The closer the score is to 1, the higher the similarity between the responses.")
